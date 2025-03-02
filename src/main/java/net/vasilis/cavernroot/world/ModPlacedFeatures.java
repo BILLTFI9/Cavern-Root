@@ -31,12 +31,11 @@ public class ModPlacedFeatures {
                 BiomePlacementModifier.of() // Ensures it only spawns in valid biomes
         );
 
-        // THIS FEATURE IS DISABLED!!!
         register(
                 context,
                 LUMEN_ROOT_PLACED_KEY,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.LUMEN_ROOT_KEY),
-                CountPlacementModifier.of(0),  // Spawns 2 patches per chunk
+                CountPlacementModifier.of(2),  // Spawns 2 patches per chunk
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-59), YOffset.fixed(0)), // Spawns between Y=-59 and Y=40
                 BiomePlacementModifier.of() // Ensures it only spawns in valid biomes
         );

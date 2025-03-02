@@ -31,7 +31,7 @@ public class ModBlocks {
                     .breakInstantly()
                     .sounds(BlockSoundGroup.GRASS)
                     .pistonBehavior(PistonBehavior.DESTROY)
-                    .luminance(state -> 6)
+                    .luminance(state -> 8)
                     .nonOpaque()
             )
     );
