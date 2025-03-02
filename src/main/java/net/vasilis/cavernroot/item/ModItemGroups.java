@@ -18,7 +18,7 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.TWISTED_CAVERN_ROOT);
                         entries.add(ModBlocks.CAVERN_ROOT_BLOCK);
-                        entries.add(ModItems.LUMEN_ROOT);
+                        entries.add(ModBlocks.LUMEN_ROOT);
 
                     }).build());
 

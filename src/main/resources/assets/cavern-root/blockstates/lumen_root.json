@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cavern-root:block/lumen_root"
+    }
+  }
+}

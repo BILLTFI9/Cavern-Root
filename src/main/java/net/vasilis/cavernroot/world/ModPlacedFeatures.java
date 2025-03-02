@@ -17,6 +17,7 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> CAVERN_ROOT_PLACED_KEY = registerKey("cavern_root_placed");
+    public static final RegistryKey<PlacedFeature> LUMEN_ROOT_PLACED_KEY = registerKey("lumen_root_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -27,6 +28,16 @@ public class ModPlacedFeatures {
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.CAVERN_ROOT_BLOCK_KEY),
                 CountPlacementModifier.of(10),  // Spawns 10 patches per chunk
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-59), YOffset.fixed(40)), // Spawns between Y=-59 and Y=40
+                BiomePlacementModifier.of() // Ensures it only spawns in valid biomes
+        );
+
+        // THIS FEATURE IS DISABLED!!!
+        register(
+                context,
+                LUMEN_ROOT_PLACED_KEY,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.LUMEN_ROOT_KEY),
+                CountPlacementModifier.of(0),  // Spawns 2 patches per chunk
+                HeightRangePlacementModifier.uniform(YOffset.fixed(-59), YOffset.fixed(0)), // Spawns between Y=-59 and Y=40
                 BiomePlacementModifier.of() // Ensures it only spawns in valid biomes
         );
 

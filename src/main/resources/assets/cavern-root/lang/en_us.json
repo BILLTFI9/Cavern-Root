@@ -1,8 +1,8 @@
 {
   "item.cavern-root.unwrapped_cavern_root": "Unwrapped Cavern Root",
   "item.cavern-root.twisted_cavern_root": "Twisted Cavern Root",
-  "item.cavern-root.lumen_root": "Lumen Root",
 
+  "block.cavern-root.lumen_root": "Lumen Root",
   "block.cavern-root.cavern_root_block": "Cavern Root",
 
   "itemgroup.cavernroot.cavern_root_items": "Cavern Root"

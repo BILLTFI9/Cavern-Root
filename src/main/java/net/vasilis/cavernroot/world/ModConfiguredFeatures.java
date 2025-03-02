@@ -17,6 +17,7 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> CAVERN_ROOT_BLOCK_KEY = registerKey("cavern_root_block");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LUMEN_ROOT_KEY =registerKey("lumen_root");
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
@@ -34,6 +35,23 @@ public class ModConfiguredFeatures {
                         )
                 )
         );
+
+
+        ConfiguredFeatures.register(
+                featureRegisterable,
+                LUMEN_ROOT_KEY,
+                Feature.RANDOM_PATCH,
+                new RandomPatchFeatureConfig(
+                        5,  // Tries per chunk (adjust for density)
+                        1,   // X spread
+                        1,   // Y spread
+                        PlacedFeatures.createEntry(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LUMEN_ROOT))
+                        )
+                )
+        );
+
 
     }
 

@@ -12,6 +12,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.vasilis.cavernroot.CavernRoot;
 import net.vasilis.cavernroot.block.custom.CavernRootBlock;
+import net.vasilis.cavernroot.block.custom.LumenRoot;
 
 public class ModBlocks {
 
@@ -21,6 +22,17 @@ public class ModBlocks {
                     .breakInstantly()
                     .sounds(BlockSoundGroup.GRASS)
                     .pistonBehavior(PistonBehavior.DESTROY)
+            )
+    );
+
+    public static final Block LUMEN_ROOT = registerBlock("lumen_root",
+            new LumenRoot(AbstractBlock.Settings.create()
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance(state -> 6)
+                    .nonOpaque()
             )
     );
 

@@ -10,6 +10,7 @@ public class CavernRootClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CAVERN_ROOT_BLOCK,RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LUMEN_ROOT,RenderLayer.getCutout());
 
     }
 }

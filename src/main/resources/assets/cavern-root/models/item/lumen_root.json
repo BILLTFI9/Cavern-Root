@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "cavern-root:item/unwrapped_cavern_root"
+    "layer0": "cavern-root:block/lumen_root"
   }
 }
