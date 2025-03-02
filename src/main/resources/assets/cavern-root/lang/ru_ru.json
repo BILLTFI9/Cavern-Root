@@ -1,8 +1,9 @@
 {
   "item.cavern-root.unwrapped_cavern_root": "Развёрнутый пещерный корень",
   "item.cavern-root.twisted_cavern_root": "Скрученный пещерный корень",
+  "item.cavern-root.lumen_root": "Яркий корень",
 
-  "block.cavern-root.cavern_root_block": "Блок пещерного корня",
+  "block.cavern-root.cavern_root_block": "Пещерный корень",
 
   "itemgroup.cavernroot.cavern_root_items": "Пещерный корень"
 }

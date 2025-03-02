@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "cavern-root:unwrapped_cavern_root"
+          "name": "cavern-root:cavern_root_block"
         }
       ],
       "rolls": 1.0

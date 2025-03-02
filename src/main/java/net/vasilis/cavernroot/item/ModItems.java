@@ -9,7 +9,8 @@ import net.minecraft.util.Identifier;
 import net.vasilis.cavernroot.CavernRoot;
 
 public class ModItems {
-    public static final Item UNWRAPPED_CAVERN_ROOT = registerItem("unwrapped_cavern_root", new Item(new Item.Settings()));
+
+    public static final Item LUMEN_ROOT = registerItem("lumen_root", new Item(new Item.Settings()));
 
     // Food & Drink
     public static final Item TWISTED_CAVERN_ROOT = registerItem("twisted_cavern_root", new Item(new Item.Settings().food(ModFoodComponents.TWISTED_CAVERN_ROOT)));

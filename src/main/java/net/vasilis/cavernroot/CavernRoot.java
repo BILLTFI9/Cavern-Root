@@ -22,9 +22,9 @@ public class CavernRoot implements ModInitializer {
 		ModItems.registerModItems();
 		ModWorldGeneration.generateModWorldGen();
 
-		CompostingChanceRegistry.INSTANCE.add(ModItems.UNWRAPPED_CAVERN_ROOT, 0.75f); //Composter functionality for the cavern root.
+		CompostingChanceRegistry.INSTANCE.add(ModBlocks.CAVERN_ROOT_BLOCK, 0.75f); //Composter functionality for the cavern root.
 
-		FuelRegistry.INSTANCE.add(ModItems.UNWRAPPED_CAVERN_ROOT, 200); //Fuel!
+		FuelRegistry.INSTANCE.add(ModBlocks.CAVERN_ROOT_BLOCK, 200); //Fuel!
 
 	}
 }

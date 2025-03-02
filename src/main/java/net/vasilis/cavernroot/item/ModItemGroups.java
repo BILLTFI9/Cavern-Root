@@ -13,12 +13,12 @@ import net.vasilis.cavernroot.block.ModBlocks;
 public class ModItemGroups {
     public static final ItemGroup CAVERN_ROOT_ITEMS = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(CavernRoot.MOD_ID, "cavern_root_items"),
-            FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.UNWRAPPED_CAVERN_ROOT))
+            FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.CAVERN_ROOT_BLOCK))
                     .displayName(Text.translatable("itemgroup.cavernroot.cavern_root_items"))
                     .entries((displayContext, entries) -> {
-                        entries.add(ModItems.UNWRAPPED_CAVERN_ROOT);
                         entries.add(ModItems.TWISTED_CAVERN_ROOT);
                         entries.add(ModBlocks.CAVERN_ROOT_BLOCK);
+                        entries.add(ModItems.LUMEN_ROOT);
 
                     }).build());
 
