@@ -2,6 +2,7 @@ package net.vasilis.cavernroot.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.block.Block;
@@ -27,11 +28,12 @@ public class ModBlocks {
 
     public static final Block LUMEN_ROOT = registerBlock("lumen_root",
             new LumenRoot(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLUE)
                     .noCollision()
                     .breakInstantly()
                     .sounds(BlockSoundGroup.GRASS)
                     .pistonBehavior(PistonBehavior.DESTROY)
-                    .luminance(state -> 8)
+                    .luminance(state -> 10)
                     .nonOpaque()
             )
     );
