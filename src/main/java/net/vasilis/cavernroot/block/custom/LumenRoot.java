@@ -17,7 +17,7 @@ import net.minecraft.world.WorldView;
 public class LumenRoot extends Block {
     public LumenRoot(Settings settings) { super(settings); }
 
-    private static final VoxelShape SHAPE = VoxelShapes.cuboid(0.2, 0.0, 0.2, 0.8, 1.0, 0.8);
+    private static final VoxelShape SHAPE = VoxelShapes.cuboid(0.3, 0.0, 0.3, 0.7, 0.5, 0.7);
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE; // Defines the block’s hitbox

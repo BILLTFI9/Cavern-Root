@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "cavern-root",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"name": "Cavern Root",
 	"description": "Starving in the caves? Eat a Cavern Root (or more) and continue mining. It is perfectly safe to eat.",
 	"authors": [

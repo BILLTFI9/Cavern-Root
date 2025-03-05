@@ -13,7 +13,10 @@ public class ModItems {
 
 
     // Food & Drink
-    public static final Item TWISTED_CAVERN_ROOT = registerItem("twisted_cavern_root", new Item(new Item.Settings().food(ModFoodComponents.TWISTED_CAVERN_ROOT)));
+    public static final Item TWISTED_CAVERN_ROOT = registerItem("twisted_cavern_root", new Item(new Item.Settings()
+            .food(ModFoodComponents.TWISTED_CAVERN_ROOT)
+            )
+    );
 
 
     private static Item registerItem(String name, Item item) {

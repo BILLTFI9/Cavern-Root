@@ -11,6 +11,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.vasilis.cavernroot.CavernRoot;
 import net.vasilis.cavernroot.block.custom.CavernRootBlock;
 import net.vasilis.cavernroot.block.custom.LumenRoot;
@@ -27,7 +28,7 @@ public class ModBlocks {
     );
 
     //TODO Add functionality to the Lumen root.
-    public static final Block LUMEN_ROOT = registerBlock("lumen_root",
+    public static final Block LUMEN_ROOT = registerLumen("lumen_root",
             new LumenRoot(AbstractBlock.Settings.create()
                     .mapColor(MapColor.BLUE)
                     .noCollision()
@@ -43,6 +44,7 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, Identifier.of(CavernRoot.MOD_ID, name), block);
     }
 
+    // Block and BlockItem registration
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(CavernRoot.MOD_ID, name), block);
@@ -51,6 +53,20 @@ public class ModBlocks {
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(CavernRoot.MOD_ID, name),
                 new BlockItem(block, new Item.Settings()));
+    }
+
+    // Lumen Root registration
+    private static Block registerLumen(String name, Block block) {
+        registerLumenItem(name, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(CavernRoot.MOD_ID, name), block);
+    }
+
+    private static void registerLumenItem(String name, Block block) {
+        Registry.register(Registries.ITEM, Identifier.of(CavernRoot.MOD_ID, name),
+                new BlockItem(block, new Item.Settings()
+                        .rarity(Rarity.UNCOMMON)
+                )
+        );
     }
 
     public static void registerModBlocks() {
