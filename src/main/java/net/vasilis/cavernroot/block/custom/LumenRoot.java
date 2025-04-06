@@ -5,8 +5,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -20,20 +23,19 @@ public class LumenRoot extends Block {
     private static final VoxelShape SHAPE = VoxelShapes.cuboid(0.3, 0.0, 0.3, 0.7, 0.5, 0.7);
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE; // Defines the block’s hitbox
+        return SHAPE;
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState belowBlock = world.getBlockState(pos.down());
         return belowBlock.isOf(Blocks.STONE) || belowBlock.isOf(Blocks.DEEPSLATE) || belowBlock.isOf(Blocks.GRANITE) || belowBlock.isOf(Blocks.ANDESITE) || belowBlock.isOf(Blocks.DIORITE) || belowBlock.isOf(Blocks.TUFF) || belowBlock.isOf(Blocks.DRIPSTONE_BLOCK);
-        // Ensures it can only be placed on certain blocks (prevents stacking on itself).
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (direction == Direction.DOWN && !canPlaceAt(state, world, pos)) {
-            return Blocks.AIR.getDefaultState(); // Breaks if the supporting block is removed.
+            return Blocks.AIR.getDefaultState();
         }
         return state;
     }
@@ -41,7 +43,26 @@ public class LumenRoot extends Block {
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         if (!canPlaceAt(state, world, pos)) {
-            world.breakBlock(pos, true); // Breaks instantly if somehow placed incorrectly.
+            world.breakBlock(pos, true);
+        }
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        if (world.isClient) {
+            if (random.nextFloat() < 0.3f) {
+                for (int i = 0; i < 2; i++) {
+                    double offsetX = (random.nextDouble() - 0.5) * 0.6;
+                    double offsetY = random.nextDouble() * 0.5;
+                    double offsetZ = (random.nextDouble() - 0.5) * 0.6;
+
+                    world.addParticle(ParticleTypes.SCRAPE,
+                            pos.getX() + 0.5 + offsetX,
+                            pos.getY() + offsetY,
+                            pos.getZ() + 0.5 + offsetZ,
+                            0.0, 0.0, 0.0);
+                }
+            }
         }
     }
 

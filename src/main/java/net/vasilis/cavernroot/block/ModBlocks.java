@@ -27,7 +27,6 @@ public class ModBlocks {
             )
     );
 
-    //TODO Add functionality to the Lumen root.
     public static final Block LUMEN_ROOT = registerLumen("lumen_root",
             new LumenRoot(AbstractBlock.Settings.create()
                     .mapColor(MapColor.BLUE)
