@@ -1,10 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "twisted_cavern_root",
   "ingredients": [
-    {
-      "item": "cavern-root:cavern_root_block"
-    }
+    "cavern-root:cavern_root_block"
   ],
   "result": {
     "count": 1,

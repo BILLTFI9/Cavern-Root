@@ -9,6 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -20,6 +22,7 @@ public class ModBlocks {
 
     public static final Block CAVERN_ROOT_BLOCK = registerBlock("cavern_root_block",
             new CavernRootBlock(AbstractBlock.Settings.create()
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(CavernRoot.MOD_ID, "cavern_root_block")))
                     .noCollision()
                     .breakInstantly()
                     .sounds(BlockSoundGroup.GRASS)
@@ -29,6 +32,7 @@ public class ModBlocks {
 
     public static final Block LUMEN_ROOT = registerLumen("lumen_root",
             new LumenRoot(AbstractBlock.Settings.create()
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(CavernRoot.MOD_ID, "lumen_root")))
                     .mapColor(MapColor.BLUE)
                     .noCollision()
                     .breakInstantly()
@@ -51,7 +55,11 @@ public class ModBlocks {
 
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(CavernRoot.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+                new BlockItem(block, new Item.Settings()
+                        .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(CavernRoot.MOD_ID, name)))
+                        .useBlockPrefixedTranslationKey()
+                )
+        );
     }
 
     // Lumen Root registration
@@ -63,6 +71,8 @@ public class ModBlocks {
     private static void registerLumenItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(CavernRoot.MOD_ID, name),
                 new BlockItem(block, new Item.Settings()
+                        .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(CavernRoot.MOD_ID, name)))
+                        .useBlockPrefixedTranslationKey()
                         .rarity(Rarity.UNCOMMON)
                 )
         );

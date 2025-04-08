@@ -26,9 +26,9 @@ public class ModConfiguredFeatures {
                 CAVERN_ROOT_BLOCK_KEY,
                 Feature.RANDOM_PATCH,  // Generates patches like grass
                 new RandomPatchFeatureConfig(
-                        32,  // Tries per chunk (adjust for density)
+                        8,  // Tries per chunk (adjust for density)
                         2,   // X spread
-                        3,   // Y spread
+                        2,   // Y spread
                         PlacedFeatures.createEntry(
                                 Feature.SIMPLE_BLOCK,
                                 new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.CAVERN_ROOT_BLOCK))
