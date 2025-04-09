@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "cavern-root:item/cavern_root_block"
+  }
+}
