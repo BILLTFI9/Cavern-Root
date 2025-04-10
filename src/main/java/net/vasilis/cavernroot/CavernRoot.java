@@ -24,7 +24,7 @@ public class CavernRoot implements ModInitializer {
 		CompostingChanceRegistry.INSTANCE.add(ModBlocks.CAVERN_ROOT_BLOCK, 0.75f); //Composter functionality for the cavern root.
 
 		FuelRegistryEvents.BUILD.register((builder, context) -> {
-			     builder.add(ModBlocks.CAVERN_ROOT_BLOCK, context.baseSmeltTime() / 4);
+			     builder.add(ModBlocks.CAVERN_ROOT_BLOCK, context.baseSmeltTime());
 			 });
 
 	}
