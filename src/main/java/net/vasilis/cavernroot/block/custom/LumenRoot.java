@@ -66,7 +66,7 @@ public class LumenRoot extends Block {
                     double offsetY = random.nextDouble() * 0.5;
                     double offsetZ = (random.nextDouble() - 0.5) * 0.6;
 
-                    world.addParticle(ParticleTypes.SCRAPE,
+                    world.addParticleClient(ParticleTypes.SCRAPE,
                             pos.getX() + 0.5 + offsetX,
                             pos.getY() + offsetY,
                             pos.getZ() + 0.5 + offsetZ,
