@@ -8,8 +8,8 @@
 		"BILLTFI9"
 	],
 	"contact": {
-		"homepage": "https://github.com/BILLTFI9/Cavern-Root-1.21.1",
-		"sources": "https://github.com/BILLTFI9/Cavern-Root-1.21.1"
+		"homepage": "https://github.com/BILLTFI9/Cavern-Root",
+		"sources": "https://github.com/BILLTFI9/Cavern-Root"
 	},
 	"license": "Apache-2.0",
 	"icon": "assets/cavern-root/icon.png",
@@ -30,7 +30,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.5",
+		"minecraft": "~1.21.6",
 		"java": ">=21",
 		"fabric-api": "*"
 	},
