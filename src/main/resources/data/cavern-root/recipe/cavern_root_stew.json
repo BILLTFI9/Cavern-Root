@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:bowl",
+    "cavern-root:cavern_root_block",
+    "cavern-root:cavern_root_block",
+    "cavern-root:cavern_root_block",
+    "cavern-root:cavern_root_block",
+    "cavern-root:cavern_root_block",
+    "cavern-root:cavern_root_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "cavern-root:cavern_root_stew"
+  }
+}

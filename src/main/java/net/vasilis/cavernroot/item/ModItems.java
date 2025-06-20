@@ -19,6 +19,13 @@ public class ModItems {
             )
     );
 
+    public static final Item CAVERN_ROOT_STEW = registerItem("cavern_root_stew", new CavernRootStewItem(new Item.Settings()
+            .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(CavernRoot.MOD_ID, "cavern_root_stew")))
+            .food(ModFoodComponents.CAVERN_ROOT_STEW)
+            .maxCount(1) // Required for stew-like items
+            )
+    );
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(CavernRoot.MOD_ID, name), item);

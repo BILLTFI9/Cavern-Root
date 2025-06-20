@@ -19,6 +19,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TWISTED_CAVERN_ROOT);
                         entries.add(ModBlocks.CAVERN_ROOT_BLOCK);
                         entries.add(ModBlocks.LUMEN_ROOT);
+                        entries.add(ModItems.CAVERN_ROOT_STEW);
 
                     }).build());
 

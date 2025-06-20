@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "twisted_cavern_root",
   "ingredients": [
     "cavern-root:cavern_root_block"
   ],
