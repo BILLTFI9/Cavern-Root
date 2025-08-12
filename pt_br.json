@@ -1,0 +1,10 @@
+{
+ "item.cavern-root.unwrapped_cavern_root": "Raiz Cavernosa Desenrolada",
+ "item.cavern-root.twisted_cavern_root": "Raiz Cavernosa Retorcida",
+ "item.cavern-root.cavern_root_stew": "Ensopado de Raiz Cavernosa",
+
+ "block.cavern-root.lumen_root": "Raiz Luminosa",
+ "block.cavern-root.cavern_root_block": "Raiz Cavernosa",
+
+ "itemgroup.cavernroot.cavern_root_items": "Raiz Cavernosa"
+}
