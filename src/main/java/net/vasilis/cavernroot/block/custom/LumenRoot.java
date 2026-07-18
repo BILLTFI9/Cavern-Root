@@ -59,7 +59,7 @@ public class LumenRoot extends Block {
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (world.isClient) {
+        if (world.isClient()) {
             if (random.nextFloat() < 0.3f) {
                 for (int i = 0; i < 2; i++) {
                     double offsetX = (random.nextDouble() - 0.5) * 0.6;
