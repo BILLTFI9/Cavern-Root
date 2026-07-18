@@ -1,5 +1,5 @@
-// 1.21.2	2025-04-08T19:35:17.2503486	Cavern Root/
-d5536a9199a141c97e8c912660f8363c78f5f62e data\cavern-root\worldgen\placed_feature\cavern_root_placed.json
-f19668cc8844c3ded5f4a61a8131a4dfd61109a1 data\cavern-root\worldgen\configured_feature\cavern_root_block.json
-0ad999cf3e7c4d084abfa2b065cb82e201049309 data\cavern-root\worldgen\placed_feature\lumen_root_placed.json
-4f5f522775128550c8673cb46a1731beaa9748a9 data\cavern-root\worldgen\configured_feature\lumen_root.json
+// 1.21.8	-999999999-01-01T00:00:00	Cavern Root/
+f19668cc8844c3ded5f4a61a8131a4dfd61109a1 data/cavern-root/worldgen/configured_feature/cavern_root_block.json
+4f5f522775128550c8673cb46a1731beaa9748a9 data/cavern-root/worldgen/configured_feature/lumen_root.json
+d5536a9199a141c97e8c912660f8363c78f5f62e data/cavern-root/worldgen/placed_feature/cavern_root_placed.json
+0ad999cf3e7c4d084abfa2b065cb82e201049309 data/cavern-root/worldgen/placed_feature/lumen_root_placed.json
