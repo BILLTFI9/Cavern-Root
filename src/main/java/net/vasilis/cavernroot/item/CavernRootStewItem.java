@@ -1,32 +1,32 @@
 package net.vasilis.cavernroot.item;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.consume.UseAction;
-import net.minecraft.world.World;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 
 //TODO Comments
 
 public class CavernRootStewItem extends Item {
-    public CavernRootStewItem(Settings settings) {
+    public CavernRootStewItem(Properties settings) {
         super(settings);
     }
 
     @Override
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        super.finishUsing(stack, world, user);
+    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
+        super.finishUsingItem(stack, world, user);
 
         if (stack.isEmpty()) {
             return new ItemStack(Items.BOWL);
         }
 
-        if (user instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
+        if (user instanceof Player player && !player.getAbilities().instabuild) {
             ItemStack bowl = new ItemStack(Items.BOWL);
-            if (!player.getInventory().insertStack(bowl)) {
-                player.dropItem(bowl, false);
+            if (!player.getInventory().add(bowl)) {
+                player.drop(bowl, false);
             }
         }
 
@@ -34,7 +34,7 @@ public class CavernRootStewItem extends Item {
     }
 
     @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.EAT;
+    public ItemUseAnimation getUseAnimation(ItemStack stack) {
+        return ItemUseAnimation.EAT;
     }
 }

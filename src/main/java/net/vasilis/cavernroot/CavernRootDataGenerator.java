@@ -2,8 +2,8 @@ package net.vasilis.cavernroot;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.vasilis.cavernroot.datagen.*;
 import net.vasilis.cavernroot.world.ModConfiguredFeatures;
 import net.vasilis.cavernroot.world.ModPlacedFeatures;
@@ -20,10 +20,10 @@ public class CavernRootDataGenerator implements DataGeneratorEntrypoint {
 	}
 
 	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
 
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+		registryBuilder.add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 
 	}
 }

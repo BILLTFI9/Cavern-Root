@@ -1,53 +1,55 @@
 package net.vasilis.cavernroot.world;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.registry.entry.RegistryEntryList;
-import net.minecraft.structure.rule.RuleTest;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.vasilis.cavernroot.CavernRoot;
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
 import net.vasilis.cavernroot.block.ModBlocks;
 
 import java.util.List;
 
 public class ModConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> CAVERN_ROOT_BLOCK_KEY = registerKey("cavern_root_block");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LUMEN_ROOT_KEY =registerKey("lumen_root");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CAVERN_ROOT_BLOCK_KEY = registerKey("cavern_root_block");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMEN_ROOT_KEY =registerKey("lumen_root");
 
 
-    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
-        ConfiguredFeatures.register(
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> featureRegisterable) {
+        FeatureUtils.register(
                 featureRegisterable,
                 CAVERN_ROOT_BLOCK_KEY,
                 Feature.RANDOM_PATCH,  // Generates patches like grass
-                new RandomPatchFeatureConfig(
+                new RandomPatchConfiguration(
                         8,  // Tries per chunk (adjust for density)
                         2,   // X spread
                         2,   // Y spread
-                        PlacedFeatures.createEntry(
+                        PlacementUtils.onlyWhenEmpty(
                                 Feature.SIMPLE_BLOCK,
-                                new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.CAVERN_ROOT_BLOCK))
+                                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CAVERN_ROOT_BLOCK))
                         )
                 )
         );
 
 
-        ConfiguredFeatures.register(
+        FeatureUtils.register(
                 featureRegisterable,
                 LUMEN_ROOT_KEY,
                 Feature.RANDOM_PATCH,
-                new RandomPatchFeatureConfig(
+                new RandomPatchConfiguration(
                         5,  // Tries per chunk (adjust for density)
                         1,   // X spread
                         1,   // Y spread
-                        PlacedFeatures.createEntry(
+                        PlacementUtils.onlyWhenEmpty(
                                 Feature.SIMPLE_BLOCK,
-                                new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LUMEN_ROOT))
+                                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.LUMEN_ROOT))
                         )
                 )
         );
@@ -55,12 +57,12 @@ public class ModConfiguredFeatures {
 
     }
 
-    public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(CavernRoot.MOD_ID, name));
+    public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(CavernRoot.MOD_ID, name));
     }
 
-    private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context,
-                                                                                   RegistryKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context,
+                                                                                   ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 }
